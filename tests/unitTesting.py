@@ -1,10 +1,14 @@
 import pytest
 import sys
 from datetime import date, datetime
-sys.path.append(r'C:\Users\Jeff\Desktop\Oxygen-Consumption-Calculator')
-
+import os
 from models.person import Person
 
+
+current_directory = os.path.dirname(os.path.realpath(__file__))
+relative_path = os.path.join(current_directory, 'Oxygen-Consumption-Calculator')
+
+sys.path.append(relative_path)
 
 def test_createPerson():
     bob = Person("Bob", "20/12/2000", "70", "180", "M", "s")
