@@ -47,6 +47,17 @@ class Person:
     @height.setter
     def height(self, value):
         self._height = float(value)
+
+    @property
+    def gender(self):
+        return self._gender
+
+    @gender.setter
+    def gender(self, value):
+        if value in ("M", "F"):
+            self._gender = value
+        else:
+            raise ValueError(f"Gender {value} is not M or F")
     
     @age.setter
     def age(self, value):
