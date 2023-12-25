@@ -12,11 +12,13 @@ sys.path.append(relative_path)
 
 
 def test_createPerson():
-    bob = Person("Bob", "20/12/2000", "70", "180", "M", "s")
+    bob = Person("Bob", "20/12/2000", "70", "180", "M", "Light")
     assert bob.name == "Bob"
     assert bob.age == 23
     assert type(bob.dob) == date
 
 def test_incorrectPerson():
     with pytest.raises(ValueError):
-        bob = Person("Bob", "20/12/2000", "70", "180", "eM", "s")
+        bob = Person("Bob", "20/12/2000", "70", "180", "eM", "Light")
+    with pytest.raises(ValueError):
+        bob = Person("Bob", "20/12/2000", "70", "180", "M", "h")

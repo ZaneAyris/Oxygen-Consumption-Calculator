@@ -58,6 +58,18 @@ class Person:
             self._gender = value
         else:
             raise ValueError(f"Gender {value} is not M or F")
+
+    @property
+    def activity(self):
+        return self._activity
+
+    @activity.setter
+    def activity(self, value):
+        categories = ("Sedentary", "Light", "Moderate", "Very", "Extreme")
+        if value in categories:
+            self._activity = categories.index(value)
+        else:
+            raise ValueError(f"{value} is not an activity category")
     
     @age.setter
     def age(self, value):
