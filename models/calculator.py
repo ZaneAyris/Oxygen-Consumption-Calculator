@@ -1,5 +1,3 @@
-from person import Person
-
 def calculateBMR(person):
         #Mifflin-St Jeor equation
         bmrMultiplier = [1.2, 1.375, 1.55, 1.725, 1.9]
@@ -14,9 +12,3 @@ def calculateVO2(bmr, fCarb = 0.5, fFat = 0.3, fProt = 0.2):
         return bmr * ratio
 
 
-
-bob = Person("Bob", "23/09/2004", "62", "180", "M", "Sedentary")
-bobsBmr = calculateBMR(bob)
-print(bobsBmr)
-bobsVO2 = calculateVO2(bobsBmr)
-print(bobsVO2)

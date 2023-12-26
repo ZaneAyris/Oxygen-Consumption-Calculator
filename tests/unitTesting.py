@@ -2,13 +2,14 @@ import pytest
 import sys
 from datetime import date, datetime
 import os
-from models.person import Person
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
-relative_path = os.path.join(current_directory, 'Oxygen-Consumption-Calculator')
+project_root = os.path.join(current_directory, 'Oxygen-Consumption-Calculator')
 
-sys.path.append(relative_path)
+sys.path.append(project_root)
 
+from models.person import Person
+from models.calculator import calculateBMR, calculateVO2
 
 
 def test_createPerson():
@@ -22,3 +23,9 @@ def test_incorrectPerson():
         bob = Person("Bob", "20/12/2000", "70", "180", "eM", "Light")
     with pytest.raises(ValueError):
         bob = Person("Bob", "20/12/2000", "70", "180", "M", "h")
+
+def test_bmr():
+    bob = Person("Bob", "20/12/2000", "70", "180", "M", "Light")
+    john = Person("John", "20/12/2000", "70", "180", "F", "Light")
+    assert round(calculateBMR(bob)) == 2358
+    assert round(calculateBMR(john)) == 2130
