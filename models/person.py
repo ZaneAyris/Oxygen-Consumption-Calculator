@@ -10,8 +10,8 @@ class Person:
     def __init__(self, name, dob, weight, height, gender, activity):
         self.name = name
         self.dob = dob
-        self.weight = int(weight)
-        self.height = int(height)
+        self.weight = float(weight)
+        self.height = float(height)
         self.gender = gender
         self.activity = activity
         self.age = int(calculateAge(dob))
@@ -33,6 +33,10 @@ class Person:
         if currAge != self._age:
             self._age = currAge
         return currAge
+
+    @age.setter
+    def age(self, value):
+        self._age = int(value)
 
     @property
     def weight(self):
@@ -79,10 +83,17 @@ class Person:
         else:
             raise ValueError(f"{value} is not an activity category")
     
-    @age.setter
-    def age(self, value):
-        self._age = int(value)
-    
+    @property
+    def restingHR(self):
+        return self._restingHR
+
+    @restingHR.setter
+    def restingHR(self, value):
+        if value > 0 and value <= 201 - (0.7 * self.age):
+            self._restingHR = value
+        else:
+            raise ValueError(f"Resting heart incorrect")
+        
     def __str__(self):
         return f'{self.name}'
 
