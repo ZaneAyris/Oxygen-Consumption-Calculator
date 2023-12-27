@@ -28,6 +28,8 @@ class Person:
     @property
     def age(self):
         currAge = calculateAge(self.dob)
+        if currAge < 0:
+            raise ValueError("Wrong DOB Inputted")
         if currAge != self._age:
             self._age = currAge
         return currAge
