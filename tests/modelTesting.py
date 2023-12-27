@@ -37,7 +37,9 @@ def test_incorrect_bmr():
         calculateBMR(Struct(age = 20, weight=70, height=160, gender="M", activity=9))
     with pytest.raises(TypeError):
         calculateBMR(Struct(age = 20, weight=70, height=160, gender="M", activity="Active"))
-        
+
+def test_vo2():
+    assert(round(calculateVO2(Struct(age=21, restingHR = 60)))) == 49
 
 # Integration Testing
 
@@ -48,3 +50,5 @@ def test_bmr_with_person():
     assert round(calculateBMR(bob)) == 2358
     assert round(calculateBMR(john)) == 2130
     assert round(calculateBMR(ben)) == 518
+
+

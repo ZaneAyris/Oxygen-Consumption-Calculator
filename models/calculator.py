@@ -7,6 +7,6 @@ def calculateBMR(person):
 
 
 def calculateVO2(person):
-        return ((208 - (person.age * 0.7)) / person.restingHR) * 15.3
+        return ((208 - (person.age * 0.7)) / person.restingHR) * 15.3 #ml/kg/min
 
 
