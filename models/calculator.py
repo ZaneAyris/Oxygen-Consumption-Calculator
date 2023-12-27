@@ -6,9 +6,7 @@ def calculateBMR(person):
         return baseBMR * bmrMultiplier[person.activity]
 
 
-def calculateVO2(bmr, fCarb = 0.5, fFat = 0.3, fProt = 0.2):
-        rq = (1.0, 0.7, 0.8)
-        ratio = (rq[0] * fCarb + rq[1] * fFat + rq[2] * fProt) /21.1
-        return bmr * ratio
+def calculateVO2(person):
+        return ((208 - (person.age * 0.7)) / person.restingHR) * 15.3
 
 
