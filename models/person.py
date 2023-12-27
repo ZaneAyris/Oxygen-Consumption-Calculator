@@ -38,7 +38,10 @@ class Person:
 
     @weight.setter
     def weight(self, value):
-        self._weight = float(value)
+        if value > 0:
+            self._weight = float(value)
+        else:
+            raise ValueError(f"Weight must be a positive number")
 
     @property
     def height(self):
@@ -46,7 +49,10 @@ class Person:
 
     @height.setter
     def height(self, value):
-        self._height = float(value)
+        if value > 0:
+            self._height = float(value)
+        else:
+            raise ValueError(f"Height must be a positive number")
 
     @property
     def gender(self):
